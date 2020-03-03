@@ -1,0 +1,37 @@
+name: configuraptor
+
+# The packages we (may) depend on
+dependencies:
+  - base             # For built-in functions like `length`
+  - containers       # For Data.Map, etc., if needed
+  - mtl              # Some standard monads, if needed
+  - parsec           # If needed; ReadP is already part of base
+  - text             # Shouldn't really be needed, but we allow it
+  - bytestring       # Ditto
+  # don't add anything else here
+
+# The Configuraptor libraries
+library:
+  source-dirs: src
+  exposed-modules:
+    - Absyn
+    - Parser
+    - Elaborator
+    - Solver
+
+executable:
+  main: Main.hs
+  source-dirs: src
+
+# Sample test suite
+tests:
+  my-test-suite:
+    main: Test.hs
+    source-dirs: tests
+    dependencies: # not all may be relevant
+      - configuraptor
+      - tasty
+      - tasty-hunit
+      - QuickCheck
+      - tasty-quickcheck
+      # You may add other LTS-14.1 packages here, if really appropriate

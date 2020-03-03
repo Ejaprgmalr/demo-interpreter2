@@ -1,0 +1,4 @@
+# do not modify anything!
+resolver: lts-14.1
+packages:
+  - .
